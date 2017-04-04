@@ -1,0 +1,15 @@
+{
+  "name": "foraneos-server",
+  "version": "1.0.0",
+  "description": "Servidor para el administrador de subsidios para foráneos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Lanzagorta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mysql": "^2.12.0"
+  }
+}
