@@ -4,7 +4,9 @@
   "description": "Servidor para el administrador de subsidios para foráneos.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "author": "Pedro Lanzagorta",
   "license": "ISC",
