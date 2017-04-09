@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36426108-4522-4680-b94c-a84abf2205ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-    </list>
+    <list default="true" id="36426108-4522-4680-b94c-a84abf2205ef" name="Default" comment="" />
     <ignored path="Foraneos.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -298,12 +296,12 @@
       <workItem from="1491001668582" duration="2148000" />
       <workItem from="1491005115570" duration="121000" />
       <workItem from="1491277326916" duration="2296000" />
-      <workItem from="1491493264638" duration="31681000" />
+      <workItem from="1491493264638" duration="31714000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51140000" />
+    <option name="totallyTimeSpent" value="51173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2762" height="1770" extended-state="6" />
