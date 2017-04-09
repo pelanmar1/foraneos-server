@@ -7,7 +7,7 @@ var app = express();
 
 var routerForaneos= require('./api/routes/router_foraneos.js');
 var routerDirecciones=require('./api/routes/router_direcciones.js');
-var iniDB =require('./config/iniDB.js');
+var iniDB =require('./iniDB.js');
 var db = iniDB.db;
 
 
