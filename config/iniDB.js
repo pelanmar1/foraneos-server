@@ -7,19 +7,21 @@
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
+var dotenv = require('dotenv').config({path:__dirname+'/.env'});
 
 var db = {};
 
-
-var sequelize = new Sequelize("mysql://necaxa:generalmostaza@alphabd.crnoftqctjtr.us-west-2.rds.amazonaws.com:3306/AlphaBD");
-
+if(process.env.DB_URL) {
+    var sequelize = new Sequelize(process.env.DB_URL);
+    //var sequelize = new Sequelize("mysql://necaxa:generalmostaza@alphabd.crnoftqctjtr.us-west-2.rds.amazonaws.com:3306/AlphaBD");
+}
 fs
-    .readdirSync(__dirname + "/api/models/")
+    .readdirSync(__dirname + "./../api/models/")
     .filter(function (file) {
         return (file.indexOf(".") !== 0);
     })
     .forEach(function (file) {
-        var model = sequelize.import(path.join(__dirname, "/api/models/", file));
+        var model = sequelize.import(path.join(__dirname, "./../api/models/", file));
         db[model.name] = model;
     });
 

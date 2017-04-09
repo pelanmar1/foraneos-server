@@ -7,7 +7,7 @@ var app = express();
 
 var routerForaneos= require('./api/routes/router_foraneos.js');
 var routerDirecciones=require('./api/routes/router_direcciones.js');
-var iniDB =require('./iniDB.js');
+var iniDB =require('./config/iniDB.js');
 var db = iniDB.db;
 
 
@@ -31,8 +31,7 @@ app.get('/', function (req,resp) {
     resp.send('Hello');
 });
 
-var port = process.env.PORT || 3000;
-console.log(process.env.PORT);
+var port = process.env.PORT || 8000;
 app.listen(port, function() {
     console.log("App is running on port " + port);
 });

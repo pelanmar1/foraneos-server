@@ -2,7 +2,7 @@
  * Created by Pedro Lanzagorta M on 4/6/2017.
  */
 
-var db = require('../../iniDB.js').db;
+var db = require('../../config/iniDB.js').db;
 
 
 module.exports = {
