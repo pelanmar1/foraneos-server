@@ -3,7 +3,7 @@
  */
 
 "use strict";
-var dotenv = require('dotenv').config({path: __dirname + '/.env'});
+//var dotenv = require('dotenv').config({path: __dirname + '/.env'});
 
 var fs = require("fs");
 var path = require("path");
