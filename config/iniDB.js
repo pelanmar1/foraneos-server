@@ -12,7 +12,8 @@ var Sequelize = require("sequelize");
 var db = {};
 
 if (process.env.DB_URL) {
-    var sequelize = new Sequelize(process.env.DB_URL);
+    var sequelize = new Sequelize("mysql://necaxa:generalmostaza@alphabd.crnoftqctjtr.us-west-2.rds.amazonaws.com:3306/AlphaBD");
+    //var sequelize = new Sequelize(process.env.DB_URL);
 }
 
 fs

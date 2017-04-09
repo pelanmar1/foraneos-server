@@ -4,9 +4,9 @@
 
 var express = require('express');
 var app = express();
-var routerForaneos= require('api/routes/router_foraneos.js');
-var routerDirecciones=require('api/routes/router_direcciones.js');
-var iniDB =require('config/iniDB.js');
+var routerForaneos= require('./api/routes/router_foraneos.js');
+var routerDirecciones=require('./api/routes/router_direcciones.js');
+var iniDB =require('./config/iniDB.js');
 var db = iniDB.db;
 
 
@@ -26,7 +26,7 @@ function connectToDB() {
         });
 }
 app.get('/', function (req,resp) {
-    connectToDB();
+    //connectToDB();
     resp.send('Hello');
 });
 
