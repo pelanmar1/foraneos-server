@@ -32,6 +32,7 @@ app.get('/', function (req,resp) {
 });
 
 var port = process.env.PORT || 8000;
+console.log(process.env);
 app.listen(port, function() {
     console.log("App is running on port " + port);
 });
