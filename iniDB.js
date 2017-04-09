@@ -31,7 +31,7 @@ Object.keys(db).forEach(function (modelName) {
 });
 
 
-function syncModels() {
+function syncModels(db) {
     Object.keys(db).forEach(function (modelName) {
         db[modelName].sync({force: true});
     });
