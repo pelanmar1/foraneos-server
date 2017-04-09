@@ -31,5 +31,8 @@ app.get('/', function (req,resp) {
     resp.send('Hello');
 });
 
-app.listen(process.env.PORT || 8000);
+var port = process.env.PORT || 8000;
+app.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 
