@@ -28,6 +28,7 @@ function connectToDB() {
 }
 
 app.get('/', function (req,resp) {
+    connectToDB();
     resp.send('Hello');
 });
 

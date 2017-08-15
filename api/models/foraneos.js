@@ -10,8 +10,9 @@ module.exports = function(sequelize, DataTypes) {
         cu: {type: DataTypes.INTEGER,allowNull: false,unique: true},
         fNacimiento:{type:DataTypes.DATE,allowNull: false},
         carrera: {type: DataTypes.STRING,allowNull: false},
-        semsetre: {type: DataTypes.INTEGER},
+        semestre: {type: DataTypes.INTEGER},
         email: {type: DataTypes.STRING,allowNull: false,unique:true},
+        emailItam:{type: DataTypes.STRING,allowNull: false,unique:true},
         celular: {type: DataTypes.STRING,allowNull: false},
         ciudad_origen: {type: DataTypes.STRING},
         estado_origen: {type: DataTypes.STRING}
