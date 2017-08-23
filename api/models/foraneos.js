@@ -2,6 +2,7 @@
  * Created by Pedro Lanzagorta M on 4/6/2017.
  */
 "use strict";
+var bcrypt = require('bcrypt');
 
 module.exports = function(sequelize, DataTypes) {
     var Foraneos = sequelize.define("Foraneos", {
@@ -12,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         carrera: {type: DataTypes.STRING,allowNull: false},
         semestre: {type: DataTypes.INTEGER},
         email: {type: DataTypes.STRING,allowNull: false,unique:true},
+        pass:{type:DataTypes.STRING,allowNull:false},
         emailItam:{type: DataTypes.STRING,allowNull: false,unique:true},
         celular: {type: DataTypes.STRING,allowNull: false},
         ciudad_origen: {type: DataTypes.STRING},
@@ -26,9 +28,28 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 Foraneos.belongsTo(models.Direcciones, { foreignKey: 'direccion_id'})
+            },
+            validPassword: function(password,passwrd,done,user){
+                bcrypt.compareSync(password,passwrd,function(err,isMatch){
+                    if(err){
+                        console.log(err);
+                    }
+                    if(isMatch){
+                        return done(null,user);
+                    }else{
+                        return done(null,false);
+                    }
+                        });
+
             }
         }
+        }
 
-        });
+        );
+        Foraneos.hook('beforeCreate',function(usuario,cb){
+            var hash = bcrypt.hashSync(usuario.pass,10);
+            usuario.pass = hash;
+
+        });       
     return Foraneos;
 };

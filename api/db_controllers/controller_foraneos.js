@@ -5,6 +5,14 @@
 var db = require('../../iniDB.js').db;
 
 module.exports = {
+    insertForaneoAndAddress(fno,adds){
+        db.Direcciones.create(adds).then(function(d){
+            fno.direccion_id = d.id;
+            db.Foraneos.create(fno).then(function(f){
+                return 'Done';
+            });
+        });
+    },
     insertForaneo:function(foraneo) {
         db.Foraneos.create(foraneo).then(function (foraneo) {
             return foraneo.id;
@@ -27,6 +35,18 @@ module.exports = {
             else
                 return callback(null,foraneo);
         });
+    },
+    getForaneo:function (email,callback) {
+        db.Foraneos.findAll({
+            where:{email:email}
+        }).then(function (foraneo) {
+            if(!foraneo || foraneo.length === 0)
+                return callback('El correo ingresado no se encuentra registrado en la base de datos.');
+            else
+                return callback(null,foraneo);
+        });
+
     }
+
 };
 

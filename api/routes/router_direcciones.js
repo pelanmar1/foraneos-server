@@ -5,16 +5,12 @@
 var express = require('express');
 var routerDirecciones = express.Router();
 var dc = require('../db_controllers/controller_direcciones.js');
-var bodyParser =require('body-parser');
 
-var app = express();
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
 
 routerDirecciones.post('/',function (req,res) {
-    if (!req.body) return res.sendStatus(400);
+    if (!req.body) return res.sendStatus(400);    
     var direccion = parseDireccion(req);
-    dc.insertDireccion(foraneo);
+    dc.insertDireccion(direccion);
     res.send('Alta exitosa.')
 
 });
