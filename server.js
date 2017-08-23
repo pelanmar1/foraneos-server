@@ -5,6 +5,7 @@
 var express = require('express');
 var app = express();
 var bodyParser =require('body-parser');
+var cors = require('cors');
 
 
 var routerForaneos= require('./api/routes/router_foraneos.js');
@@ -14,7 +15,18 @@ var iniDB =require('./iniDB.js');
 var db = iniDB.db;
 
 
-app.use(bodyParser.json())
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'example.com');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
+app.use(allowCrossDomain);
+app.use(cors());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/foraneos',routerForaneos.routerForaneos);
 app.use('/direcciones',routerDirecciones.routerDirecciones);
