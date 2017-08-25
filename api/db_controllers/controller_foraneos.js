@@ -9,9 +9,20 @@ module.exports = {
         db.Direcciones.create(adds).then(function(d){
             fno.direccion_id = d.id;
             db.Foraneos.create(fno).then(function(f){
-                return 'Done';
+                return 'Foraneo registrado exitosamente.';
             });
-        });
+        }).catch(function (err) {
+            return err;
+          });;
+    },
+    deleteForaneoAndAddress(cu){
+        db.Foraneos.destroy({where:{cu:cu}}).then(function(rowDeleted){
+            if(rowDeleted === 1){
+                    return "Foraneo con c.u. : "+cu+' ha sido eliminado exitosamente.';
+            }
+        }).catch(function (err) {
+                    return err;
+          });;
     },
     insertForaneo:function(foraneo) {
         db.Foraneos.create(foraneo).then(function (foraneo) {
@@ -19,7 +30,7 @@ module.exports = {
         });
     },
     getForaneos:function(callback) {
-        db.Foraneos.findAll().then(function (foraneos) {
+        db.Foraneos.findAll({where:{fecha_de_eliminacion:null}}).then(function (foraneos) {
             if(!foraneos || foraneos.length === 0)
                 return callback('No hay ningún foráneo registrado.');
             else

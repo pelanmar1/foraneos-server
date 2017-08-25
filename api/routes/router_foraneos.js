@@ -25,8 +25,8 @@ routerForaneos.post('/add',function(req,res){
     if (!req.body) return res.sendStatus(400);
     var foraneo = parseForaneo(req.body.foraneo);
     var direccion = req.body.direccion;
-    fc.insertForaneoAndAddress(foraneo,direccion);
-    res.send('Listo.')    
+    var f = fc.insertForaneoAndAddress(foraneo,direccion);
+    res.send(f);    
 });
 
 routerForaneos.get('/',function (req,res) {
@@ -50,6 +50,13 @@ routerForaneos.get('/:id',function (req,res) {
     }
 });
 
+routerForaneos.delete('/:cu',function(req,res){
+    if(req.params.cu){
+        var del = fc.deleteForaneoAndAddress(req.params.cu);
+        res.send(del);
+    }
+});
+
 
 
 function parseForaneo(foraneo) {
@@ -57,7 +64,6 @@ function parseForaneo(foraneo) {
     var mes = foraneo.month_birth;
     var an = foraneo.year_birth;
     var fn = joinBirthDate(dia,mes,an);
-    //var hash = bcrypt.hashSync(req.body.pass, 10);
     var user = {
         nombre:foraneo.nombre,
         apellido: foraneo.apellido,

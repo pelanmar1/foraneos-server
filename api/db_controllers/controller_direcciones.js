@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     getDirecciones:function (callback) {
-        db.Direcciones.findAll().then(function (direcciones) {
+        db.Direcciones.findAll({where:{fecha_de_eliminacion:null}}).then(function (direcciones) {
             if(!direcciones || direcciones.length === 0){
                 return callback("No hay ninguna dirección registrada.");
             }

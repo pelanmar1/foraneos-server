@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
         deletedAt:'fecha_de_eliminacion',
         classMethods: {
             associate: function(models) {
-                Direcciones.hasMany(models.Foraneos, { foreignKey: 'direccion_id'})
+                Direcciones.hasOne(models.Foraneos, { foreignKey: 'direccion_id'})
             }
         }
     });

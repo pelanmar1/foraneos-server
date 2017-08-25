@@ -24,10 +24,10 @@ module.exports = function(sequelize, DataTypes) {
         updatedAt: 'ultima_actualizacion',
         createdAt: 'fecha_de_creacion',
         deletedAt:'fecha_de_eliminacion',
-        paranoid: true,
+        paranoid: false,
         classMethods: {
             associate: function(models) {
-                Foraneos.belongsTo(models.Direcciones, { foreignKey: 'direccion_id'})
+                Foraneos.belongsTo(models.Direcciones, { foreignKey: 'direccion_id',onDelete:'cascade'})
             },
             validPassword: function(password,passwrd,done,user){
                 bcrypt.compareSync(password,passwrd,function(err,isMatch){
